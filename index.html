@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>API Docs v2 | bitextbit</title>
+    <link href="images/favicon-1bcb9093.ico" rel="icon" type="image/ico" />
 
     <style media="screen">
       .highlight table td { padding: 5px; }
@@ -288,7 +289,7 @@
     </script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -296,13 +297,7 @@
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="images/logo-1e815a84.png" class="logo" alt="" />
-        <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
-        </div>
+      <img src="images/logo-1fb6a9d8.png" class="logo" alt="" />
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
@@ -312,219 +307,138 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
-          </li>
-          <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
+            <a href="#http-api-v2" class="toc-h1 toc-link" data-title="HTTP API (v2)">HTTP API (v2)</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
-                  </li>
-                  <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
-                  </li>
-                  <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                    <a href="#authentication" class="toc-h2 toc-link" data-title="Authentication">Authentication</a>
                   </li>
               </ul>
           </li>
           <li>
+            <a href="#http-api-v1" class="toc-h1 toc-link" data-title="HTTP API (v1)">HTTP API (v1)</a>
+          </li>
+          <li>
+            <a href="#success-responses" class="toc-h1 toc-link" data-title="Success responses">Success responses</a>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
+          <li>
+            <a href="#public-methods" class="toc-h1 toc-link" data-title="Public methods">Public methods</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#currencies" class="toc-h2 toc-link" data-title="Currencies">Currencies</a>
+                  </li>
+                  <li>
+                    <a href="#pairs" class="toc-h2 toc-link" data-title="Pairs">Pairs</a>
+                  </li>
+                  <li>
+                    <a href="#open-high-low-close-volume" class="toc-h2 toc-link" data-title="Open-High-Low-Close-Volume">Open-High-Low-Close-Volume</a>
+                  </li>
+                  <li>
+                    <a href="#tickers" class="toc-h2 toc-link" data-title="Tickers">Tickers</a>
+                  </li>
+                  <li>
+                    <a href="#orderbook-depth" class="toc-h2 toc-link" data-title="Orderbook Depth">Orderbook Depth</a>
+                  </li>
+                  <li>
+                    <a href="#public-orders" class="toc-h2 toc-link" data-title="Public Orders">Public Orders</a>
+                  </li>
+                  <li>
+                    <a href="#public-trades" class="toc-h2 toc-link" data-title="Public Trades">Public Trades</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#private-methods" class="toc-h1 toc-link" data-title="Private methods">Private methods</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create-order" class="toc-h2 toc-link" data-title="Create Order">Create Order</a>
+                  </li>
+                  <li>
+                    <a href="#cancel-order" class="toc-h2 toc-link" data-title="Cancel Order">Cancel Order</a>
+                  </li>
+                  <li>
+                    <a href="#private-orders" class="toc-h2 toc-link" data-title="Private Orders">Private Orders</a>
+                  </li>
+                  <li>
+                    <a href="#private-trades" class="toc-h2 toc-link" data-title="Private Trades">Private Trades</a>
+                  </li>
+                  <li>
+                    <a href="#balance" class="toc-h2 toc-link" data-title="Balance">Balance</a>
+                  </li>
+                  <li>
+                    <a href="#trading-fees" class="toc-h2 toc-link" data-title="Trading Fees">Trading Fees</a>
+                  </li>
+                  <li>
+                    <a href="#create-coupon" class="toc-h2 toc-link" data-title="Create coupon">Create coupon</a>
+                  </li>
+                  <li>
+                    <a href="#redeem-coupon" class="toc-h2 toc-link" data-title="Redeem coupon">Redeem coupon</a>
+                  </li>
+              </ul>
+          </li>
       </ul>
-        <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a></li>
-        </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>Welcome to the bitexbit API docs!</p>
 
-<p>We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<p>Service <a href="https://bitexbit.com">bitexbit.com</a> provides open API for trading operations and broadcasting of all trading events. </p>
+<h1 id='http-api-v2'>HTTP API (v2)</h1>
+<p>HTTP API endpoint available on <strong><code>https://bitexbit.com/api/v2/</code></strong>.</p>
 
-<p>This example API documentation page was created with <a href="https://github.com/slatedocs/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
-<h1 id='authentication'>Authentication</h1>
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
-</blockquote>
-
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code>Authorization: meowmeowmeow</code></p>
+<p>Some methods requires authorization read below.</p>
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+ We have limit in 2 calls per second from single account to authorization required methods and 100 calls per secong from single IP address to public methods.
 </aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<p>All HTTP methods accept <code>JSON</code> formats of requests and responses if it not specified by headers.</p>
+<h2 id='authentication'>Authentication</h2>
+<p>There are few types of authentication</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
+<ul>
+<li><code>FREE</code> - no authentication need</li>
+<li><code>FULL</code> - need api key and signature</li>
+</ul>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="kd">get</span><span class="p">();</span>
-</code></pre></div>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre></div>
-<p>This endpoint retrieves all kittens.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
+<p>For <code>FULL</code> authentication you need:</p>
+
+<ul>
+<li>Generate API <code>key</code> and <code>secret</code> in <a href="https://bitexbit.com/profile/api/profile/api">Profile Api</a>.</li>
+<li>Make <code>nonce</code> - a number that must be unique and must increase with each call to the API</li>
+<li>Make <code>payload</code> - string, concatenated with <code>path</code>, <code>nonce</code>, and <code>body</code>. Where
+<code>path</code> - relative path without query params (example: <code>/api/v2/private/balance</code>) and
+<code>body</code> - for <code>POST</code> request - json string from request data, for <code>GET</code> request empty string.</li>
+<li>Make <code>signature</code> from <code>payload</code> and <code>secret</code>, using HMAC Authentication with SHA-256.</li>
+<li>Send next HTTP headers: <code>X-API-Key</code>, <code>X-Nonce</code>, <code>X-Signature</code>,
+where <code>X-API-Key</code> - <code>key</code>, <code>X-Nonce</code> - <code>nonce</code>, <code>X-Signature</code> - <code>signature</code> as hexadecimal string.</li>
+</ul>
+<h1 id='http-api-v1'>HTTP API (v1)</h1>
+<p>Read more about API v1 <a href="https://bitexbit.github.io/api-docs-v1">here</a></p>
+<h1 id='success-responses'>Success responses</h1>
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
+<th>Code</th>
+<th>Meaning</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td>200</td>
+<td>Returns is response is success. Body of response usually contains object that affected.</td>
 </tr>
 </tbody></table>
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<!-- ## HTTP 200
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+Returns is response is success. Body of response usually contains object that affected.
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
-</tr>
-</tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span> <span class="se">\</span>
-  <span class="nt">-X</span> DELETE <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to delete</td>
-</tr>
-</tbody></table>
+Here are also batch endpoints. -->
 <h1 id='errors'>Errors</h1>
-<aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
-</aside>
-
-<p>The Kittn API uses the following error codes:</p>
+<p>We are using standard HTTP statuses in responses.</p>
 
 <table><thead>
 <tr>
@@ -534,58 +448,1004 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 </thead><tbody>
 <tr>
 <td>400</td>
-<td>Bad Request -- Your request is invalid.</td>
+<td>If response has http status 400 that means that client should change some input parameters to make it success. What exactly wrong returned in response body.</td>
 </tr>
 <tr>
 <td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
+<td>In case when HTTP endpoint require authentication but provided authentication headers not valid - response with status 401 will be returned and the details in body.</td>
 </tr>
 <tr>
 <td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
+<td>You do not have access to do the operation. For example when you try to cancel orders that was created by other user.</td>
 </tr>
 <tr>
 <td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+<td>We have different rate limits to call API methods. If you reached this - response with status 429 will be returned.</td>
 </tr>
 <tr>
 <td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+<td>Nobody is safe to make mistakes. This is the case when error happened on serer side. No details but we are see it.</td>
 </tr>
 <tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+<td>502</td>
+<td>Looks like we under high load. Try your request later.</td>
 </tr>
 </tbody></table>
+<h1 id='public-methods'>Public methods</h1>
+<p>Here all method you can use without any credentials:</p>
+
+<ul>
+<li><a href="#currencies">Currencies</a></li>
+<li><a href="#pairs">Pairs</a></li>
+<li><a href="#open-high-low-close-volume">Open-High-Low-Close-Volume</a></li>
+<li><a href="#tickers">Tickers</a></li>
+<li><a href="#orderbook-depth">Orderbook Depth</a></li>
+<li><a href="#public-orders">Public Orders</a></li>
+<li><a href="#public-trades">Public Trades</a></li>
+</ul>
+<h2 id='currencies'>Currencies</h2>
+<p>Returns list of currencies on the exchange. Each element contains info describing currency.</p>
+<h3 id='request'>Request</h3>
+<p><code>GET /api/v2/public/currencies</code></p>
+<h3 id='authentication-2'>Authentication</h3>
+<p><code>FREE</code></p>
+<h3 id='response'>Response</h3>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bitcoin"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://bitexbit.com/media/currency/BTC/l.TpjkNtFB2Q9QQbBO.png"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"precision"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"is_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ETH"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ethereum"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://bitexbit.com/media/currency/ETH/l.MN2H93w4xXpDIRhX.png"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"precision"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"is_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p>Each object in array has next structure:</p>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>code</td>
+<td>string</td>
+<td>short <strong>unique</strong> name of currency</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>full name of currency</td>
+</tr>
+<tr>
+<td>image_url</td>
+<td>string</td>
+<td>relative url to image of currency</td>
+</tr>
+<tr>
+<td>precision</td>
+<td>integer</td>
+<td>how many decimal places supported for currency</td>
+</tr>
+<tr>
+<td>is_enabled</td>
+<td>boolean</td>
+<td>is currency enabled (can be temporary or permanent as well)</td>
+</tr>
+</tbody></table>
+<h3 id='currency-details'>Currency details</h3><h3 id='request-2'>Request</h3>
+<p><code>GET /api/v2/public/currency/&lt;code&gt;</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>code</td>
+<td>string</td>
+<td>short <strong>unique</strong> name of currency</td>
+</tr>
+</tbody></table>
+<h2 id='pairs'>Pairs</h2>
+<p>Returns list of trading pairs listed on exchange. Each element contains info describing pair.</p>
+<h3 id='request-3'>Request</h3>
+<p><code>GET /api/v2/public/pairs</code></p>
+<h3 id='authentication-3'>Authentication</h3>
+<p><code>FREE</code></p>
+<h3 id='response-2'>Response</h3>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC_USD"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC/USD"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"quote"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"price_precision"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount_precision"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"min_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00001000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"max_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"min_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00001000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"can_create_order"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"can_cancel_order"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"is_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LTC_USD"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LTC/USD"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LTC"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"quote"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"price_precision"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount_precision"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"min_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00001000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"max_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"min_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00001000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"can_create_order"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"can_cancel_order"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"is_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p>Each object in array has next structure:</p>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td><strong>unique</strong> pair name, that build from first and second currency symbols divided by underscore symbol</td>
+</tr>
+<tr>
+<td>label</td>
+<td>string</td>
+<td>human readable pair name</td>
+</tr>
+<tr>
+<td>base</td>
+<td>string</td>
+<td>symbol of first currency. all amount in orders and trades measured in this currency</td>
+</tr>
+<tr>
+<td>quote</td>
+<td>string</td>
+<td>symbol of second currency</td>
+</tr>
+<tr>
+<td>price_precision</td>
+<td>integer</td>
+<td>ow many decimal digits can be in <code>price</code> when placing order</td>
+</tr>
+<tr>
+<td>amount_precision</td>
+<td>integer</td>
+<td>how many decimal digits can be in <code>amount</code> when placing order</td>
+</tr>
+<tr>
+<td>min_amount</td>
+<td>decimal string</td>
+<td>only acceptable <code>amount</code> greater or equal this value when placing order</td>
+</tr>
+<tr>
+<td>max_amount</td>
+<td>decimal string</td>
+<td>only acceptable <code>amount</code> lesser or equal this value when placing order</td>
+</tr>
+<tr>
+<td>min_value</td>
+<td>decimal string</td>
+<td>minimal value of order in <code>quote_currency</code> (<code>amount</code> multiply by <code>price</code>)</td>
+</tr>
+<tr>
+<td>can_create_order</td>
+<td>boolean</td>
+<td>can order be places or not by this pair</td>
+</tr>
+<tr>
+<td>can_cancel_order</td>
+<td>boolean</td>
+<td>can order be cancelled or not by this pair</td>
+</tr>
+<tr>
+<td>is_enabled</td>
+<td>boolean</td>
+<td>is pair enabled, orders can be places or canceled (can be temporary or permanent as well)</td>
+</tr>
+</tbody></table>
+<h3 id='pair-details'>Pair Details</h3>
+<p><code>GET /api/v2/public/pairs/&lt;symbol&gt;</code></p>
+
+<p>Where <code>symbol</code> - string; identifier of pair</p>
+<h2 id='open-high-low-close-volume'>Open-High-Low-Close-Volume</h2>
+<p>Returns list of candles by specified candle type and pair</p>
+<h3 id='request-4'>Request</h3>
+<p><code>GET /api/v2/public/ohlcv</code></p>
+<h3 id='authentication-4'>Authentication</h3>
+<p><code>FREE</code></p>
+<h3 id='parameters'>Parameters</h3>
+<p>Object with next items:</p>
+
+<ul>
+<li><code>symbol</code> - string; identifier of pair <strong>Required</strong></li>
+<li><code>timeframe</code> - string; time interval of candle. Allowed values are <code>5</code> (15 min), <code>15</code> (15 min), <code>30</code> (30 min), <code>60</code> (1 hour), <code>240</code> (4 hours), <code>D</code> (24 hours). <strong>Required</strong></li>
+<li><code>since</code> - integer; timestamp, minimal <code>date</code> of candle</li>
+<li><code>until</code> - integer; timestamp, maximal <code>date</code> of candle</li>
+<li><code>limit</code> - integer; max number of results, by default is 100, max value is 1000</li>
+</ul>
+
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">[</span><span class="w">
+    </span><span class="mi">1477958400</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"715.00000000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"720.20000000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"715.00000000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"717.00000000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"0.01924864"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="p">[</span><span class="w">
+    </span><span class="mi">1478044800</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"717.00000000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"717.50000000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"712.00000000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"716.50000000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"0.08771271"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div><h3 id='response-3'>Response</h3>
+<p>Array of arrays; Each array in response has next items:</p>
+
+<ul>
+<li><code>1</code> - integer; timestamp in milliseconds, date of opening candle</li>
+<li><code>2</code> - decimal string; price at the time of opening the candle</li>
+<li><code>3</code> - decimal string; maximal price</li>
+<li><code>4</code> - decimal string; minimal price</li>
+<li><code>5</code> - decimal string; price at the time of closing the candle</li>
+<li><code>6</code> - decimal string; trading volume in currency1 of pair</li>
+</ul>
+<h2 id='tickers'>Tickers</h2>
+<p>Returns list of tickers objects for all trading pairs</p>
+<h3 id='request-5'>Request</h3>
+<p><code>GET /api/v2/public/tickers</code></p>
+<h3 id='authentication-5'>Authentication</h3>
+<p><code>FREE</code></p>
+<h3 id='parameters-2'>Parameters</h3>
+<p>Object with next items:</p>
+
+<ul>
+<li><code>symbols</code> - string; identifier of pair or multiple pair identifiers, separated by comma, example - <code>BTC_USD,BTC_USDT</code>. Max number of pairs is 5.</li>
+</ul>
+<h3 id='response-4'>Response</h3>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1547535929556</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC_USD"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3781.33900000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"buy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3781.33900000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"sell"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3781.94500000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"vol1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"vol2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"high"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"low"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00000000"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1547535923368</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ETH_USD"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"132.33000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"buy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"132.08000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"sell"</span><span class="p">:</span><span class="w"> </span><span class="s2">"132.33000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"vol1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"vol2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"high"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"low"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00000000"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p>Each object in array has next structure:</p>
+
+<ul>
+<li><code>date</code> - integer; milliseconds timestamp when was last activity on market</li>
+<li><code>symbol</code> - string; identifier of pair</li>
+<li><code>low</code> - decimal string; lowest trade price last 24 hours</li>
+<li><code>high</code> - decimal string; highest trade price last 24 hours</li>
+<li><code>change</code> - decimal string; difference in percent between price that was 24 hours ago and latest trade; if no trades last 24 hours it will be <code>0</code></li>
+<li><code>last</code> - decimal string; price of last trade of pair</li>
+<li><code>vol1</code> - decimal string; 24 hour trading volume on pair measured in first currency</li>
+<li><code>vol2</code> - decimal string; 24 hour trading volume on pair measured in second currency</li>
+<li><code>buy</code> - decimal string; current top buy price</li>
+<li><code>sell</code> - decimal string; current top sell price</li>
+</ul>
+<h2 id='orderbook-depth'>Orderbook Depth</h2>
+<p>Get the depth of orderbook.</p>
+<h3 id='request-6'>Request</h3>
+<p><code>GET /api/v2/public/depth</code></p>
+<h3 id='authentication-6'>Authentication</h3>
+<p><code>FREE</code></p>
+<h3 id='parameters-3'>Parameters</h3>
+<p>Object with next items:</p>
+
+<ul>
+<li><code>symbol</code> - string; identifier of orderbook. <strong>Required</strong></li>
+<li><code>limit</code> - integer; limit the number of returned records for each bids and asks. Maximum <strong>50</strong></li>
+</ul>
+<h3 id='response-5'>Response</h3>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="mf">1568905003.866091</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"asks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span><span class="w">
+    </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">]</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"bids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span><span class="w">
+    </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">]</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"sum_bids"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"sum_asks"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Object with next items:</p>
+
+<ul>
+<li><code>date</code> - float; current timestamp</li>
+<li><code>symbol</code> - string; current timestamp</li>
+<li><code>asks</code> - array of pairs of aggregated price and amount</li>
+<li><code>bids</code> - array of pairs of aggregated price and amount</li>
+<li><code>sum_bids</code> - float; total amount of bids in orderbook</li>
+<li><code>sum_asks</code> - float; total amount of asks in orderbook</li>
+</ul>
+<h2 id='public-orders'>Public Orders</h2>
+<p>Returns public orders list</p>
+<h3 id='request-7'>Request</h3>
+<p><code>GET /api/v2/public/orders</code></p>
+<h3 id='authentication-7'>Authentication</h3>
+<p><code>FREE</code></p>
+<h3 id='parameters-4'>Parameters</h3>
+<ul>
+<li><code>symbol</code> - string; any symbol id</li>
+<li><code>type</code> - string; buy-limit, sell-limit</li>
+<li><code>status</code> - string; active, canceled, done</li>
+<li><code>since</code> - integer; timestamp, minimal <code>date</code> of record</li>
+<li><code>until</code> - integer; timestamp, maximal <code>date</code> of record</li>
+<li><code>since_id</code> - integer; minimal <code>id</code> of record</li>
+<li><code>until_id</code> - integer; maximal <code>id</code> of record</li>
+<li><code>limit</code> - integer; max number of results, by default is 100, max value is 1000</li>
+</ul>
+<h3 id='response-6'>Response</h3>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1478036172902</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buy-limit"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC_USD"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"433.00000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00692841"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount_unfilled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00692841"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount_filled"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount_cancelled"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"value_filled"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"price_avg"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"done_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"submitted"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1478033710751</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buy-limit"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC_USD"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55.00000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00876952"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount_unfilled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00876952"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount_filled"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount_cancelled"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"value_filled"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"price_avg"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"done_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"submitted"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p>Each object in array has next structure:</p>
+
+<ul>
+<li><code>id</code> - integer; order id</li>
+<li><code>date</code> - integer; milliseconds timestamp when order created</li>
+<li><code>type</code> - string; <code>buy-limit</code>, <code>sell-limit</code></li>
+<li><code>symbol</code> - string; identifier of pair</li>
+<li><code>price</code> - string; limit price</li>
+<li><code>amount</code> - string; amount of order when it is created</li>
+<li><code>amount_unfilled</code> - string; current amount</li>
+<li><code>amount_filled</code> - string; amount that matched already</li>
+<li><code>amount_cancelled</code> - string; when order canceled this equals to unfilled amount at the moment of cancellation</li>
+<li><code>value_filled</code> - string; amount of the second currency that filled</li>
+<li><code>price_avg</code> - string; average price of filled amount</li>
+<li><code>done_at</code> - string; milliseconds timestamp when order was filly filled or cancelled</li>
+<li><code>state</code> - string; <code>submitted</code>, <code>partial-filled</code>, <code>filled</code>, <code>partial-canceled</code>, <code>canceled</code></li>
+</ul>
+<h2 id='public-trades'>Public Trades</h2>
+<p>Returns list of trades filtered by parameters</p>
+<h3 id='request-8'>Request</h3>
+<p><code>GET /api/v2/public/trades</code></p>
+<h3 id='authentication-8'>Authentication</h3>
+<p><code>FREE</code></p>
+<h3 id='parameters-5'>Parameters</h3>
+<p>Object with next items:</p>
+
+<ul>
+<li><code>symbol</code> - string; identifier of pair</li>
+<li><code>type</code> - string; <code>sell</code> or <code>buy</code></li>
+<li><code>since</code> - integer; timestamp, minimal <code>date</code> of record</li>
+<li><code>until</code> - integer; timestamp, maximal <code>date</code> of record</li>
+<li><code>since_id</code> - integer; minimal <code>id</code> of record</li>
+<li><code>until_id</code> - integer; maximal <code>id</code> of record</li>
+<li><code>limit</code> - integer; max number of results, by default is 100, max value is 1000</li>
+</ul>
+<h3 id='response-7'>Response</h3>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1543252041327</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">17802900</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC_USD"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6609.00000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00075600"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buy"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1541591882904</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">17802242</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC_USD"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6610.00000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00100000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buy"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1541591750140</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">17802190</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC_USD"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6636.71000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00002335"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buy"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p>Each object in array has next structure:</p>
+
+<ul>
+<li><code>date</code> - number; timestamp, date of trade</li>
+<li><code>id</code> - integer;</li>
+<li><code>symbol</code> - string; identifier of pair</li>
+<li><code>price</code> - decimal string;</li>
+<li><code>amount</code> - decimal string;</li>
+<li><code>type</code> - integer; <code>sell</code> or <code>buy</code></li>
+</ul>
+<h1 id='private-methods'>Private methods</h1>
+<p>Here all method that requires authentication:</p>
+
+<ul>
+<li><a href="#create-order">Create Order</a></li>
+<li><a href="#cancel-order">Cancel Order</a></li>
+<li><a href="#private-orders">Private Orders</a></li>
+<li><a href="#private-trades">Private Trades</a></li>
+<li><a href="#balance">Balance</a></li>
+<li><a href="#trading-fees">Trading Fees</a></li>
+<li><a href="#create-coupon">Create coupon</a></li>
+<li><a href="#redeem-coupon">Redeem coupon</a></li>
+</ul>
+<h2 id='create-order'>Create Order</h2>
+<p>Create order on platform</p>
+
+<p><em>Currently only limit order. If new order types will be added limit order will be by default</em></p>
+<h3 id='request-9'>Request</h3>
+<p><code>POST /api/v2/private/order/create</code></p>
+<h3 id='authentication-9'>Authentication</h3>
+<p><code>FULL</code>, <code>CAN_CREATE_ORDER</code></p>
+<h3 id='parameters-6'>Parameters</h3>
+<p>Object with next items:</p>
+
+<ul>
+<li><code>symbol</code> - string; trading pair, market for order</li>
+<li><code>type</code> - string; <code>sell-limit</code> or <code>buy-limit</code></li>
+<li><code>price</code> - decimal string; desired price for order</li>
+<li><code>amount</code> - decimal string; size of order measured in first currency of trading pair</li>
+</ul>
+<h3 id='response-8'>Response</h3>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"order"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">33852806</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1544617382079</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC_USD"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sell-limit"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000.00000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00150000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount_unfilled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00150000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount_filled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount_cancelled"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"value_filled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fee_filled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"price_avg"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"done_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"submitted"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"trades"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nl">"funds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"available"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5.15245011"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"reserved"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.49999876"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Object with order data and funds</p>
+
+<ul>
+<li><code>order</code> - object with next structure:
+
+<ul>
+<li><code>id</code> - number; unique identifier of order</li>
+<li><code>date</code> - integer; timestamp when operation were performed</li>
+<li><code>symbol</code> - string; market of the order, equivalent to trading pair</li>
+<li><code>type</code> - string; <code>sell-limit</code> or <code>buy-limit</code></li>
+<li><code>price</code> - decimal string; price with what order were created</li>
+<li><code>amount</code> - decimal string; amount with what order were created</li>
+<li><code>amount_unfilled</code> - decimal string; current amount</li>
+<li><code>amount_filled</code> - decimal string; amount that already matched</li>
+<li><code>amount_cancelled</code> - decimal string; when order canceled this equals to unfilled amount at the moment of cancellation</li>
+<li><code>value_filled</code> - decimal string; amount of the second currency that filled</li>
+<li><code>fee_filled</code> - decimal string; fee amount that already matched</li>
+<li><code>price_avg</code> - decimal string; average price of filled amount</li>
+<li><code>done_at</code> - integer; date when order was closed</li>
+<li><code>state</code> - string; <code>submitted</code>, <code>partial-filled</code>, <code>filled</code>, <code>partial-canceled</code>, <code>canceled</code></li>
+</ul></li>
+<li><code>trades</code> - array; if order were matched with side orders on placing there are some trades will be created;
+
+<ul>
+<li><code>id</code> - number; unique identifier of trade</li>
+<li><code>price</code> - decimal string; price of trade</li>
+<li><code>amount</code> - decimal string; value of trade</li>
+<li><code>side_order</code> - integer; identifier of side order that was matched to current order</li>
+</ul></li>
+<li><code>funds</code> - array; list of wallets that were changed by operation
+
+<ul>
+<li><code>symbol</code> - string; symbol of currency</li>
+<li><code>available</code> - decimal string; available funds</li>
+<li><code>reserved</code> - decimal string; reserved funds</li>
+</ul></li>
+</ul>
+<h2 id='cancel-order'>Cancel Order</h2>
+<p>Cancel order on platform</p>
+<h3 id='request-10'>Request</h3>
+<p><code>POST /api/v2/private/order/&lt;id&gt;/cancel</code></p>
+<h3 id='authentication-10'>Authentication</h3>
+<p><code>FULL</code>, <code>CAN_CANCEL_ORDER</code></p>
+<h3 id='path-parameters'>Path parameters</h3>
+<p>Object with next items:</p>
+
+<ul>
+<li><code>id</code> - number; id of order that must be canceled</li>
+</ul>
+<h3 id='response-9'>Response</h3>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"cancel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">458528</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1544617682079</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"order"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">33852806</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1544617382079</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC_USD"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sell-limit"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000.00000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00150000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount_unfilled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount_filled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount_cancelled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00150000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"value_filled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fee_filled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"price_avg"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"done_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1544617682079</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"canceled"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"funds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"available"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6.65244888"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"reserved"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00000000"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Object with next structure</p>
+
+<ul>
+<li><code>cancel</code> - object;
+
+<ul>
+<li><code>id</code> - number; identifier of operation</li>
+<li><code>date</code> - number; date of operation</li>
+</ul></li>
+<li><code>order</code> - object;
+
+<ul>
+<li><code>id</code> - number; unique identifier of order</li>
+<li><code>date</code> - integer; timestamp when operation were performed</li>
+<li><code>symbol</code> - string; market of the order, equivalent to trading pair</li>
+<li><code>type</code> - string; <code>sell-limit</code> or <code>buy-limit</code></li>
+<li><code>price</code> - decimal string; price with what order were created</li>
+<li><code>amount</code> - decimal string; amount with what order were created</li>
+<li><code>amount_unfilled</code> - decimal string; current amount</li>
+<li><code>amount_filled</code> - decimal string; amount that already matched</li>
+<li><code>amount_cancelled</code> - decimal string; when order canceled this equals to unfilled amount at the moment of cancellation</li>
+<li><code>value_filled</code> - decimal string; amount of the second currency that filled</li>
+<li><code>fee_filled</code> - decimal string; fee amount that already matched</li>
+<li><code>price_avg</code> - decimal string; average price of filled amount</li>
+<li><code>done_at</code> - integer; date when order was closed</li>
+<li><code>state</code> - string; <code>submitted</code>, <code>partial-filled</code>, <code>filled</code>, <code>partial-canceled</code>, <code>canceled</code></li>
+</ul></li>
+<li><code>funds</code> - array; list of wallets that were changed by operation
+
+<ul>
+<li><code>symbol</code> - string; symbol of currency</li>
+<li><code>available</code> - decimal string; available funds</li>
+<li><code>reserved</code> - decimal string; reserved funds</li>
+</ul></li>
+</ul>
+<h2 id='private-orders'>Private Orders</h2>
+<p>Returns list of my orders filtered by parameters</p>
+<h3 id='request-11'>Request</h3>
+<p><code>GET /api/v2/private/orders</code></p>
+<h3 id='authentication-11'>Authentication</h3>
+<p><code>FULL</code></p>
+<h3 id='parameters-7'>Parameters</h3>
+<ul>
+<li><code>symbol</code> - string; any symbol id</li>
+<li><code>type</code> - string; buy-limit, sell-limit</li>
+<li><code>status</code> - string; active, canceled, done</li>
+<li><code>since</code> - integer; timestamp, minimal <code>date</code> of record</li>
+<li><code>until</code> - integer; timestamp, maximal <code>date</code> of record</li>
+<li><code>since_id</code> - integer; minimal <code>id</code> of record</li>
+<li><code>until_id</code> - integer; maximal <code>id</code> of record</li>
+<li><code>limit</code> - integer; max number of results, by default is 100, max value is 1000</li>
+</ul>
+<h3 id='response-10'>Response</h3>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1478036172902</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buy-limit"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC_USD"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"433.00000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00692841"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount_unfilled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00692841"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount_filled"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount_cancelled"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"value_filled"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fee_filled"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"price_avg"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"done_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"submitted"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1478033710751</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buy-limit"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC_USD"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55.00000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00876952"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount_unfilled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00876952"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount_filled"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount_cancelled"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"value_filled"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fee_filled"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"price_avg"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"done_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"submitted"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p>Each object in array has next structure:</p>
+
+<ul>
+<li><code>id</code> - integer; order id</li>
+<li><code>date</code> - integer; milliseconds timestamp when order created</li>
+<li><code>type</code> - string; <code>buy-limit</code>, <code>sell-limit</code></li>
+<li><code>price</code> - string; limit price</li>
+<li><code>amount</code> - string; amount of order when it is created</li>
+<li><code>amount_unfilled</code> - string; current amount</li>
+<li><code>amount_filled</code> - string; amount that matched already</li>
+<li><code>amount_cancelled</code> - string; when order canceled this equals to unfilled amount at the moment of cancellation</li>
+<li><code>value_filled</code> - string; amount of the second currency that filled</li>
+<li><code>fee_filled</code> - string; amount of fee pair for filled amount or value</li>
+<li><code>price_avg</code> - string; average price of filled amount</li>
+<li><code>done_at</code> - string; milliseconds timestamp when order was filly filled or cancelled</li>
+<li><code>state</code> - string; <code>submitted</code>, <code>partial-filled</code>, <code>filled</code>, <code>partial-canceled</code>, <code>canceled</code></li>
+</ul>
+<h2 id='private-trades'>Private Trades</h2>
+<p>Returns list of my trades filtered by parameters</p>
+<h3 id='request-12'>Request</h3>
+<p><code>GET /api/v2/private/trades</code></p>
+<h3 id='authentication-12'>Authentication</h3>
+<p><code>FULL</code></p>
+<h3 id='parameters-8'>Parameters</h3>
+<p>Object with next items:</p>
+
+<ul>
+<li><code>symbol</code> - string; identifier of pair</li>
+<li><code>type</code> - string; <code>sell</code> or <code>buy</code></li>
+<li><code>since</code> - integer; timestamp, minimal <code>date</code> of record</li>
+<li><code>until</code> - integer; timestamp, maximal <code>date</code> of record</li>
+<li><code>since_id</code> - integer; minimal <code>id</code> of record</li>
+<li><code>until_id</code> - integer; maximal <code>id</code> of record</li>
+<li><code>limit</code> - integer; max number of results, by default is 100, max value is 1000</li>
+</ul>
+<h3 id='response-11'>Response</h3>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">17802902</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1544617013258</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buy"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC_USD"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6585.00000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fee_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.01316842"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fee_rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00200000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fee_symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p>Each object in array has next structure:</p>
+
+<ul>
+<li><code>id</code> - integer; identifier of trade</li>
+<li><code>date</code> - float; timestamp, date of trade</li>
+<li><code>type</code> - string; <code>sell</code> or <code>buy</code></li>
+<li><code>symbol</code> - string; identifier of pair</li>
+<li><code>price</code> - decimal string; trade price</li>
+<li><code>amount</code> - decimal string; trade amount</li>
+<li><code>fee_amount</code> - decimal string; fee value</li>
+<li><code>fee_rate</code> - decimal string; fee rate (rate <code>0.002</code> mean <code>2%</code>)</li>
+<li><code>fee_symbol</code> - string; symbol of fee currency</li>
+</ul>
+<h2 id='balance'>Balance</h2>
+<p>Returns fund for each symbol available on account</p>
+<h3 id='request-13'>Request</h3>
+<p><code>GET /api/v2/private/balance</code></p>
+<h3 id='authentication-13'>Authentication</h3>
+<p><code>FULL</code></p>
+<h3 id='parameters-9'>Parameters</h3>
+<p>Object with next items:</p>
+
+<ul>
+<li><code>symbols</code> - string; identifier of pair or multiple pair identifiers, separated by comma, example - <code>BTC_USD,BTC_USDT</code>. Max number of pairs is 5.</li>
+</ul>
+<h3 id='response-12'>Response</h3>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"available"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00661226"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"reserved"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00000000"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"available"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6.65245012"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"reserved"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00000124"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p>Each object in array has next structure:</p>
+
+<ul>
+<li><code>symbol</code> - string; identifier of currency</li>
+<li><code>available</code> - decimal string; available funds</li>
+<li><code>reserved</code> - decimal string; reserved funds</li>
+</ul>
+
+<p>Object; keys is currencies id of wallets that were changed by operation, values is available balance after operation</p>
+<h2 id='trading-fees'>Trading Fees</h2>
+<p>Returns account trading fees</p>
+<h3 id='request-14'>Request</h3>
+<p><code>GET /api/v2/private/trading-fees</code></p>
+<h3 id='authentication-14'>Authentication</h3>
+<p><code>FULL</code></p>
+<h3 id='response-13'>Response</h3>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"sell_fee_rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00200000"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"buy_fee_rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00200000"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"pair_fee_rates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC_USD"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"sell_fee_rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00000000"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"buy_fee_rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00000000"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Object has next structure:</p>
+
+<ul>
+<li><code>taker_fee_rate</code> - decimal string; fee rate for sell orders</li>
+<li><code>maker_fee_rate</code> - decimal string; fee rate for buy orders</li>
+<li><code>pair_fee_rates</code> - array; list of fee rates by pair (it overrides <code>taker_fee_rate</code>, <code>maker_fee_rate</code>)
+
+<ul>
+<li><code>symbol</code> - string; identifier of currency</li>
+<li><code>maker_fee_rate</code> - decimal string; fee rate for sell orders</li>
+<li><code>taker_fee_rate</code> - decimal string; fee rate for buy orders</li>
+</ul></li>
+</ul>
+<h2 id='create-coupon'>Create coupon</h2>
+<p>Create Coupon</p>
+
+<p>Read more about <strong>Coupon</strong>s ...</p>
+<h3 id='request-15'>Request</h3>
+<p><code>POST /api/v2/private/coupon/create</code></p>
+<h3 id='authentication-15'>Authentication</h3>
+<p><code>FULL</code>, <code>CAN_CREATE_COUPON</code></p>
+<h3 id='parameters-10'>Parameters</h3>
+<p>Object with next items:</p>
+
+<ul>
+<li><code>symbol</code> - string; id of currency asset of Coupon</li>
+<li><code>amount</code> - number; value of Coupon</li>
+<li><code>recipient_email</code> - string; email of recipient, can be skipped of not need. but if set - only user with this email or owner can redeem it</li>
+</ul>
+<h3 id='response-14'>Response</h3>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTClYyR9gLNrZCN35KY4DFxc64roF1RJKsxxgEuMyRdnmkp7qmrw5XGVjQrk2UZhccFD"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"coupon"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1544695102296</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"opid"</span><span class="p">:</span><span class="w"> </span><span class="mi">48480429</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.05000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"recipient_email"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"funds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"available"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.12060000"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"reserved"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00000000"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<aside class="notice">
+If request was success
+</aside>
+
+<p>Object has next structure:</p>
+
+<ul>
+<li><code>code</code> - string; code of created coupon. it is your Coupon, save it and keep in safe</li>
+<li><code>coupon</code> - object;
+
+<ul>
+<li><code>date</code> - number; timestamp when operation was performed</li>
+<li><code>opid</code> - integer; internal id of operation</li>
+<li><code>amount</code> - decimal string; value of coupon</li>
+<li><code>symbol</code> - string; currency symbol of coupon</li>
+<li><code>recipient_email</code> - string; recipient on Coupon, if was requested</li>
+</ul></li>
+<li><code>funds</code> - array; list of wallets that were changed by operation
+
+<ul>
+<li><code>symbol</code> - string; symbol of currency</li>
+<li><code>available</code> - decimal string; available funds</li>
+<li><code>reserved</code> - decimal string; reserved funds</li>
+</ul></li>
+</ul>
+<h2 id='redeem-coupon'>Redeem coupon</h2>
+<p>Redeem Coupon</p>
+<h3 id='request-16'>Request</h3>
+<p><code>POST /api/v2/private/coupon/redeem</code></p>
+<h3 id='authentication-16'>Authentication</h3>
+<p><code>FULL</code>, <code>CAN_REDEEM_COUPON</code></p>
+<h3 id='parameters-11'>Parameters</h3>
+<p>Object with next items:</p>
+
+<ul>
+<li><code>code</code> - string; Coupon that you have</li>
+</ul>
+<h3 id='response-15'>Response</h3>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"redeem"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="mf">1544696109.65948</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.05000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+  </span><span class="nl">"funds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"available"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.12560000"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"reserved"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00000000"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<aside class="notice">
+If request was success
+</aside>
+
+<p>Object has next structure:</p>
+
+<ul>
+<li><code>redeem</code> - object;
+
+<ul>
+<li><code>date</code> - number; timestamp when operation was performed</li>
+<li><code>amount</code> - decimal string; value that was added to your funds</li>
+<li><code>symbol</code> - string; currency symbol of wallet that were promoted</li>
+</ul></li>
+<li><code>funds</code> - array; list of wallets that were changed by operation
+
+<ul>
+<li><code>symbol</code> - string; symbol of currency</li>
+<li><code>available</code> - decimal string; available funds</li>
+<li><code>reserved</code> - decimal string; reserved funds</li>
+</ul></li>
+</ul>
 
       </div>
       <div class="dark-box">
-          <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
-          </div>
       </div>
     </div>
   </body>

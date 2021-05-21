@@ -59,6 +59,9 @@ For `FULL` authentication you need:
 # HTTP API (v1)
 
 Read more about API v1 [here](https://bitexbit.github.io/api-docs-v1)
+# HTTP API Gateway
+
+Read more about API Gateway [here](https://bitexbit.github.io/api-docs-gateway)
 
 # Success responses
 

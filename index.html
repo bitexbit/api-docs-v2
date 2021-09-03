@@ -321,6 +321,14 @@
             <a href="#http-api-gateway" class="toc-h1 toc-link" data-title="HTTP API Gateway">HTTP API Gateway</a>
           </li>
           <li>
+            <a href="#api-example" class="toc-h1 toc-link" data-title="Api example">Api example</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#example" class="toc-h2 toc-link" data-title="Example">Example</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#success-responses" class="toc-h1 toc-link" data-title="Success responses">Success responses</a>
           </li>
           <li>
@@ -436,7 +444,209 @@ where <code>X-API-Key</code> - <code>key</code>, <code>X-Nonce</code> - <code>no
 <p>Read more about API v1 <a href="https://bitexbit.github.io/api-docs-v1">here</a></p>
 <h1 id='http-api-gateway'>HTTP API Gateway</h1>
 <p>Read more about API Gateway <a href="https://bitexbit.github.io/api-docs-gateway">here</a></p>
-<h1 id='success-responses'>Success responses</h1>
+<h1 id='api-example'>Api example</h1><h2 id='example'>Example</h2>
+<blockquote>
+<p>Api Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript"><code><span class="kd">const</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">axios</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">sha256</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">js-sha256</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="kd">class</span> <span class="nx">ApiClient</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">secret</span><span class="p">,</span> <span class="nx">baseUrl</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">https://www.bitexbit.com</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">key</span> <span class="o">=</span> <span class="nx">key</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">secret</span> <span class="o">=</span> <span class="nx">secret</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">client</span> <span class="o">=</span> <span class="nx">axios</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+      <span class="na">baseURL</span><span class="p">:</span> <span class="nx">baseUrl</span><span class="p">,</span>
+      <span class="na">timeout</span><span class="p">:</span> <span class="mi">10000</span><span class="p">,</span>
+      <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">Content-Type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">application/json; charset=utf-8</span><span class="dl">"</span><span class="p">,</span>
+        <span class="na">Accept</span><span class="p">:</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">,</span>
+      <span class="p">},</span>
+      <span class="na">responseType</span><span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span><span class="p">,</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+
+  <span class="nx">getCurrencies</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_get</span><span class="p">(</span><span class="dl">"</span><span class="s2">/api/v2/public/currencies</span><span class="dl">"</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">getCurrency</span><span class="p">(</span><span class="nx">symbol</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_get</span><span class="p">(</span><span class="s2">`</span><span class="err">/api/v2/public/currency/</span><span class="p">${</span><span class="nx">symbol</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">getPairs</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_get</span><span class="p">(</span><span class="dl">"</span><span class="s2">/api/v2/public/pairs</span><span class="dl">"</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">getPair</span><span class="p">(</span><span class="nx">symbol</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_get</span><span class="p">(</span><span class="s2">`</span><span class="err">/api/v2/public/pairs/</span><span class="p">${</span><span class="nx">symbol</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">getOHLCV</span><span class="p">(</span><span class="nx">symbol</span><span class="p">,</span> <span class="nx">timeframe</span><span class="p">,</span> <span class="nx">filters</span> <span class="o">=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">symbol</span><span class="p">:</span> <span class="nx">symbol</span><span class="p">,</span>
+      <span class="na">timeframe</span><span class="p">:</span> <span class="nx">timeframe</span><span class="p">,</span>
+    <span class="p">};</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">filters</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span><span class="nx">params</span><span class="p">,</span> <span class="p">...</span><span class="nx">filters</span> <span class="p">};</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_get</span><span class="p">(</span><span class="dl">"</span><span class="s2">/api/v2/public/ohlcv</span><span class="dl">"</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">getTickers</span><span class="p">(</span><span class="nx">symbols</span> <span class="o">=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{};</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">symbols</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nb">Array</span><span class="p">.</span><span class="nx">isArray</span><span class="p">(</span><span class="nx">symbols</span><span class="p">))</span> <span class="p">{</span>
+        <span class="nx">params</span><span class="p">.</span><span class="nx">symbols</span> <span class="o">=</span> <span class="nx">symbols</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="dl">"</span><span class="s2">,</span><span class="dl">"</span><span class="p">);</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">params</span><span class="p">.</span><span class="nx">symbols</span> <span class="o">=</span> <span class="nx">symbols</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_get</span><span class="p">(</span><span class="dl">"</span><span class="s2">/api/v2/public/tickers</span><span class="dl">"</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">getOrderbookDepth</span><span class="p">(</span><span class="nx">symbol</span><span class="p">,</span> <span class="nx">limit</span> <span class="o">=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">symbol</span><span class="p">:</span> <span class="nx">symbol</span><span class="p">,</span>
+    <span class="p">};</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">limit</span><span class="p">)</span> <span class="nx">params</span><span class="p">.</span><span class="nx">limit</span> <span class="o">=</span> <span class="nx">limit</span><span class="p">;</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_get</span><span class="p">(</span><span class="s2">`</span><span class="err">/api/v2/public/depth</span><span class="s2">`</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">getTrades</span><span class="p">(</span><span class="nx">symbol</span><span class="p">,</span> <span class="nx">filters</span> <span class="o">=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">symbol</span><span class="p">:</span> <span class="nx">symbol</span><span class="p">,</span>
+    <span class="p">};</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">filters</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span><span class="nx">params</span><span class="p">,</span> <span class="p">...</span><span class="nx">filters</span> <span class="p">};</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_get</span><span class="p">(</span><span class="s2">`</span><span class="err">/api/v2/public/trades</span><span class="s2">`</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">getMyOrders</span><span class="p">(</span><span class="nx">filters</span> <span class="o">=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_get</span><span class="p">(</span><span class="dl">"</span><span class="s2">/api/v2/private/orders</span><span class="dl">"</span><span class="p">,</span> <span class="nx">filters</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">getMyOrderTrades</span><span class="p">(</span><span class="nx">orderId</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_get</span><span class="p">(</span><span class="s2">`</span><span class="err">/api/v2/private/orders/</span><span class="p">${</span><span class="nx">orderId</span><span class="p">}</span><span class="err">/trades</span><span class="s2">`</span><span class="p">,</span> <span class="p">{},</span> <span class="kc">true</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">createOrder</span><span class="p">(</span><span class="nx">symbol</span><span class="p">,</span> <span class="nx">price</span><span class="p">,</span> <span class="nx">amount</span><span class="p">,</span> <span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_post</span><span class="p">(</span><span class="dl">"</span><span class="s2">/api/v2/private/order/create</span><span class="dl">"</span><span class="p">,</span> <span class="p">{</span>
+      <span class="na">symbol</span><span class="p">:</span> <span class="nx">symbol</span><span class="p">,</span>
+      <span class="na">price</span><span class="p">:</span> <span class="nx">price</span><span class="p">.</span><span class="nx">toString</span><span class="p">(),</span>
+      <span class="na">amount</span><span class="p">:</span> <span class="nx">amount</span><span class="p">.</span><span class="nx">toString</span><span class="p">(),</span>
+      <span class="na">type</span><span class="p">:</span> <span class="nx">type</span><span class="p">,</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+
+  <span class="nx">cancelOrder</span><span class="p">(</span><span class="nx">orderId</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_post</span><span class="p">(</span><span class="s2">`</span><span class="err">/api/v2/private/order/</span><span class="p">${</span><span class="nx">orderId</span><span class="p">}</span><span class="err">/cancel</span><span class="s2">`</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">getMyTrades</span><span class="p">(</span><span class="nx">filters</span> <span class="o">=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_get</span><span class="p">(</span><span class="dl">"</span><span class="s2">/api/v2/private/trades</span><span class="dl">"</span><span class="p">,</span> <span class="nx">filters</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">getBalance</span><span class="p">(</span><span class="nx">symbols</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{};</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">symbols</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nb">Array</span><span class="p">.</span><span class="nx">isArray</span><span class="p">(</span><span class="nx">symbols</span><span class="p">))</span> <span class="p">{</span>
+        <span class="nx">params</span><span class="p">.</span><span class="nx">symbols</span> <span class="o">=</span> <span class="nx">symbols</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="dl">"</span><span class="s2">,</span><span class="dl">"</span><span class="p">);</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">params</span><span class="p">.</span><span class="nx">symbols</span> <span class="o">=</span> <span class="nx">symbols</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_get</span><span class="p">(</span><span class="dl">"</span><span class="s2">/api/v2/private/balance</span><span class="dl">"</span><span class="p">,</span> <span class="nx">params</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">getTradingFees</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_get</span><span class="p">(</span><span class="dl">"</span><span class="s2">/api/v2/private/trading-fees</span><span class="dl">"</span><span class="p">,</span> <span class="p">{},</span> <span class="kc">true</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">createCoupon</span><span class="p">(</span><span class="nx">amount</span><span class="p">,</span> <span class="nx">symbol</span><span class="p">,</span> <span class="nx">recipientEmail</span> <span class="o">=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">amount</span><span class="p">:</span> <span class="nx">amount</span><span class="p">.</span><span class="nx">toString</span><span class="p">(),</span>
+      <span class="na">symbol</span><span class="p">:</span> <span class="nx">symbol</span><span class="p">,</span>
+    <span class="p">};</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">recipientEmail</span><span class="p">)</span> <span class="nx">data</span><span class="p">.</span><span class="nx">recipient_email</span> <span class="o">=</span> <span class="nx">recipientEmail</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_post</span><span class="p">(</span><span class="dl">"</span><span class="s2">/api/v2/private/coupon/create</span><span class="dl">"</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">redeemCoupon</span><span class="p">(</span><span class="nx">code</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_post</span><span class="p">(</span><span class="dl">"</span><span class="s2">/api/v2/private/coupon/redeem</span><span class="dl">"</span><span class="p">,</span> <span class="p">{</span> <span class="na">code</span><span class="p">:</span> <span class="nx">code</span> <span class="p">});</span>
+  <span class="p">}</span>
+
+  <span class="nx">getTransfers</span><span class="p">(</span><span class="nx">filters</span> <span class="o">=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_get</span><span class="p">(</span><span class="dl">"</span><span class="s2">/api/v2/private/transfers/</span><span class="dl">"</span><span class="p">,</span> <span class="nx">filters</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">createTransfer</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_post</span><span class="p">(</span><span class="dl">"</span><span class="s2">/api/v2/private/transfers/create</span><span class="dl">"</span><span class="p">,</span> <span class="nx">body</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">acceptTransfer</span><span class="p">(</span><span class="nx">txid</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_post</span><span class="p">(</span><span class="s2">`</span><span class="err">/api/v2/private/transfers/</span><span class="p">${</span><span class="nx">txid</span><span class="p">}</span><span class="err">/accept</span><span class="s2">`</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">cancelTransfer</span><span class="p">(</span><span class="nx">txid</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_post</span><span class="p">(</span><span class="s2">`</span><span class="err">/api/v2/private/transfers/</span><span class="p">${</span><span class="nx">txid</span><span class="p">}</span><span class="err">/cancel</span><span class="s2">`</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">_get</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="nx">params</span> <span class="o">=</span> <span class="kc">null</span><span class="p">,</span> <span class="nx">auth</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">params</span><span class="p">:</span> <span class="nx">params</span><span class="p">,</span>
+    <span class="p">};</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">auth</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">nonce</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getTime</span><span class="p">();</span>
+      <span class="kd">const</span> <span class="nx">signature</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_getSignature</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="nx">nonce</span><span class="p">,</span> <span class="dl">""</span><span class="p">);</span>
+
+      <span class="nx">config</span><span class="p">.</span><span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">X-API-Key</span><span class="dl">"</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">key</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">X-Nonce</span><span class="dl">"</span><span class="p">:</span> <span class="nx">nonce</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">X-Signature</span><span class="dl">"</span><span class="p">:</span> <span class="nx">signature</span><span class="p">,</span>
+      <span class="p">};</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">client</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="nx">config</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">_post</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{})</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">nonce</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getTime</span><span class="p">();</span>
+    <span class="kd">const</span> <span class="nx">signature</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_getSignature</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="nx">nonce</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+
+    <span class="kd">const</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">X-API-Key</span><span class="dl">"</span><span class="p">:</span> <span class="nx">API_KEY</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">X-Nonce</span><span class="dl">"</span><span class="p">:</span> <span class="nx">nonce</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">X-Signature</span><span class="dl">"</span><span class="p">:</span> <span class="nx">signature</span><span class="p">,</span>
+      <span class="p">},</span>
+    <span class="p">};</span>
+
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">client</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">config</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">_getSignature</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="nx">nonce</span><span class="p">,</span> <span class="nx">body</span> <span class="o">=</span> <span class="dl">""</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">payload</span> <span class="o">=</span> <span class="nx">path</span> <span class="o">+</span> <span class="nx">nonce</span> <span class="o">+</span> <span class="nx">body</span><span class="p">;</span>
+    <span class="kd">const</span> <span class="nx">hash</span> <span class="o">=</span> <span class="nx">sha256</span><span class="p">.</span><span class="nx">hmac</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">secret</span><span class="p">);</span>
+    <span class="nx">hash</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">payload</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">hash</span><span class="p">.</span><span class="nx">hex</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+
+</code></pre></div><h1 id='success-responses'>Success responses</h1>
 <table><thead>
 <tr>
 <th>Code</th>

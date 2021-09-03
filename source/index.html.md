@@ -63,6 +63,213 @@ Read more about API v1 [here](https://bitexbit.github.io/api-docs-v1)
 
 Read more about API Gateway [here](https://bitexbit.github.io/api-docs-gateway)
 
+
+# Api example
+## Example
+
+> Api Example
+
+```js
+const axios = require("axios");
+const sha256 = require("js-sha256");
+
+class ApiClient {
+  constructor(key, secret, baseUrl = "https://www.bitexbit.com") {
+    this.key = key;
+    this.secret = secret;
+    this.client = axios.create({
+      baseURL: baseUrl,
+      timeout: 10000,
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        Accept: "application/json",
+      },
+      responseType: "json",
+    });
+  }
+
+  getCurrencies() {
+    return this._get("/api/v2/public/currencies");
+  }
+
+  getCurrency(symbol) {
+    return this._get(`/api/v2/public/currency/${symbol}`);
+  }
+
+  getPairs() {
+    return this._get("/api/v2/public/pairs");
+  }
+
+  getPair(symbol) {
+    return this._get(`/api/v2/public/pairs/${symbol}`);
+  }
+
+  getOHLCV(symbol, timeframe, filters = null) {
+    let params = {
+      symbol: symbol,
+      timeframe: timeframe,
+    };
+
+    if (filters) {
+      params = { ...params, ...filters };
+    }
+
+    return this._get("/api/v2/public/ohlcv", params);
+  }
+
+  getTickers(symbols = null) {
+    let params = {};
+
+    if (symbols) {
+      if (Array.isArray(symbols)) {
+        params.symbols = symbols.join(",");
+      } else {
+        params.symbols = symbols;
+      }
+    }
+
+    return this._get("/api/v2/public/tickers", params);
+  }
+
+  getOrderbookDepth(symbol, limit = null) {
+    let params = {
+      symbol: symbol,
+    };
+    if (limit) params.limit = limit;
+    return this._get(`/api/v2/public/depth`, params);
+  }
+
+  getTrades(symbol, filters = null) {
+    let params = {
+      symbol: symbol,
+    };
+
+    if (filters) {
+      params = { ...params, ...filters };
+    }
+
+    return this._get(`/api/v2/public/trades`, params);
+  }
+
+  getMyOrders(filters = null) {
+    return this._get("/api/v2/private/orders", filters, true);
+  }
+
+  getMyOrderTrades(orderId) {
+    return this._get(`/api/v2/private/orders/${orderId}/trades`, {}, true);
+  }
+
+  createOrder(symbol, price, amount, type) {
+    return this._post("/api/v2/private/order/create", {
+      symbol: symbol,
+      price: price.toString(),
+      amount: amount.toString(),
+      type: type,
+    });
+  }
+
+  cancelOrder(orderId) {
+    return this._post(`/api/v2/private/order/${orderId}/cancel`);
+  }
+
+  getMyTrades(filters = null) {
+    return this._get("/api/v2/private/trades", filters, true);
+  }
+
+  getBalance(symbols) {
+    let params = {};
+
+    if (symbols) {
+      if (Array.isArray(symbols)) {
+        params.symbols = symbols.join(",");
+      } else {
+        params.symbols = symbols;
+      }
+    }
+
+    return this._get("/api/v2/private/balance", params, true);
+  }
+
+  getTradingFees() {
+    return this._get("/api/v2/private/trading-fees", {}, true);
+  }
+
+  createCoupon(amount, symbol, recipientEmail = null) {
+    let data = {
+      amount: amount.toString(),
+      symbol: symbol,
+    };
+
+    if (recipientEmail) data.recipient_email = recipientEmail;
+
+    return this._post("/api/v2/private/coupon/create", data);
+  }
+
+  redeemCoupon(code) {
+    return this._post("/api/v2/private/coupon/redeem", { code: code });
+  }
+
+  getTransfers(filters = null) {
+    return this._get("/api/v2/private/transfers/", filters, true);
+  }
+
+  createTransfer(body) {
+    return this._post("/api/v2/private/transfers/create", body);
+  }
+
+  acceptTransfer(txid) {
+    return this._post(`/api/v2/private/transfers/${txid}/accept`);
+  }
+
+  cancelTransfer(txid) {
+    return this._post(`/api/v2/private/transfers/${txid}/cancel`);
+  }
+
+  _get(path, params = null, auth = false) {
+    let config = {
+      params: params,
+    };
+
+    if (auth) {
+      const nonce = new Date().getTime();
+      const signature = this._getSignature(path, nonce, "");
+
+      config.headers = {
+        "X-API-Key": this.key,
+        "X-Nonce": nonce,
+        "X-Signature": signature,
+      };
+    }
+
+    return this.client.get(path, config);
+  }
+
+  _post(path, data = {}) {
+    const nonce = new Date().getTime();
+    const signature = this._getSignature(path, nonce, JSON.stringify(data));
+
+    const config = {
+      headers: {
+        "X-API-Key": API_KEY,
+        "X-Nonce": nonce,
+        "X-Signature": signature,
+      },
+    };
+
+    return this.client.post(path, data, config);
+  }
+
+  _getSignature(path, nonce, body = "") {
+    const payload = path + nonce + body;
+    const hash = sha256.hmac.create(this.secret);
+    hash.update(payload);
+    return hash.hex();
+  }
+}
+
+
+```
+
 # Success responses
 
 Code | Meaning

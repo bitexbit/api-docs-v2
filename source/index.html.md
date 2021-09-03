@@ -554,6 +554,11 @@ Here all method that requires authentication:
 - [Trading Fees](#trading-fees)
 - [Create coupon](#create-coupon)
 - [Redeem coupon](#redeem-coupon)
+- [Transfer list](#transfer-list)
+- [Create transfer](#create-transfer)
+- [Accept transfer](#accept-transfer)
+- [Cancel transfer](#cancel-transfer)
+
 
 ## Create Order
 
@@ -1054,3 +1059,294 @@ Object has next structure:
   - `symbol` - string; symbol of currency
   - `available` - decimal string; available funds
   - `reserved` - decimal string; reserved funds
+
+## Transfers List
+
+Transfers List
+
+### Request
+
+`GET /api/v2/private/transfers`
+
+### Authentication
+
+`FULL`
+
+### Parameters
+
+Object with next items:
+
+- `receiver` - string; Recepient uid.
+- `currency` - string; Name of currency asset of Transfer.
+- `amount` - number; Value of Transfer.
+- `security_code` - number; Secure code to accept. 
+- `valid_days` - number; Validity period.
+- `description` - string; Description of Transfer.
+
+### Response
+
+> Response Example
+
+```json
+{
+    "count": 7,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "txid": "f346a4094fc8a56ba0ad",
+            "date": "2021-08-30T10:21:26.771489Z",
+            "amount": "10.00000000",
+            "currency": {
+                "code": "USDT",
+                "name": "Tether USD",
+                "precision": 2
+            },
+            "sender": "BL1314K55FL",
+            "receiver": {
+                "uid": "VB4DF1HQ4D7",
+                "verified": false
+            },
+            "status": {
+                "key": 30,
+                "label": "Success"
+            },
+            "description": null,
+            "valid_till": "2021-08-31T10:21:26.760408Z",
+            "is_outgoing": true,
+            "can_cancel": false,
+            "can_accept": false
+        },
+    ],
+}
+```
+
+<aside class="notice">
+If request was success
+</aside>
+
+Object has next structure:
+
+- `count` - decimal; Total transfers count;
+- `next` - string; Next page;
+- `previous` - string; Previous page;
+- `results` - list;
+  - `txid` - string; Txid of Transfer;
+  - `date` - datetime; Created at;
+  - `amount` - decimal string; Value of Transfer;
+  - `currency` - object;
+    - `code` - string; Currency code;
+    - `name` - string; Currency name;
+    - `precision` - decimal; Currency precision;
+  - `sender` -string; Sender uid;
+  - `receiver` -object;
+    - `uid` -string; Receiver uid;
+    - `verified` -bool; Is receiver verified;
+  - `status` - object;
+    - `key` - decimal; Status key;
+    - `label` - decimal; Status label;
+  - `description` - string or null; Description of Transfer;
+  - `valid_till` - datetime; Valid till date;
+  - `is_outgoing` - bool;
+  - `can_cancel` - bool;
+  - `can_accept` - bool;
+
+
+## Create Transfer
+
+Create Transfer
+
+### Request
+
+`POST /api/v2/private/transfers/create`
+
+### Authentication
+
+`FULL`
+
+### Parameters
+
+Object with next items:
+
+- `receiver` - string; required; Recepient uid.
+- `currency` - string; required; Name of currency asset of Transfer.
+- `amount` - number; required; Value of Transfer.
+- `security_code` - number; Secure code to accept. 
+- `valid_days` - number; required if security_code; min 1, max 366; Validity period.
+- `description` - string; max length 80; Description of Transfer.
+
+### Response
+
+> Response Example
+
+```json
+{
+  "receiver": "user@email.com",
+  "amount": "10.00000000",
+  "currency": "USDT",
+  "description": "Smile",
+  "txid": "12345abc",  
+  "status": {
+      "key": 10,
+      "label": "Pending"
+  },
+  "valid_till": "2021-08-31T13:07:38.871103Z",
+  "is_protected": true
+}
+```
+
+<aside class="notice">
+If request was success
+</aside>
+
+Object has next structure:
+
+- `receiver` -string; Recepient email;
+- `amount` - decimal string; Value of Transfer;
+- `currency` - string; Name of currency asset of Transfer;
+- `description` - string or null; Description of Transfer;
+- `txid` - string; Txid of Transfer;
+- `status` - object;
+  - `key` - decimal; Status key;
+  - `label` - decimal; Status label;
+- `valid_till` - datetime; Valid till date;
+- `is_protected` - bool; Is protected via secure code;
+
+
+## Accept Transfer
+
+Accept Transfer
+
+### Request
+
+`POST /api/v2/private/transfers/{{ txid }}/accept`
+
+### Authentication
+
+`FULL`
+
+### Parameters
+
+Object with next items:
+
+- `security_code` - number; Secure code to accept. 
+
+
+### Response
+
+> Response Example
+
+```json
+{
+  "transfer": {
+    "txid": "9699f3c5b4b1aa0d2528",
+    "amount": "10.00000000",
+    "currency": {
+      "code": "USDT",
+      "name": "Tether USD",
+      "precision": 2
+      },
+    "sender": "BL1314K55FL",
+    "receiver": {
+      "uid": "VB4DF1HQ4D7",
+      "verified": false
+      },
+    "status": {
+      "key": 20,
+      "label": "Cancelled"
+      },
+    "description": null,
+    "valid_till": "2021-08-31T12:38:05.859390Z"
+  }
+}
+```
+
+<aside class="notice">
+If request was success
+</aside>
+
+Object has next structure:
+
+- `txid` - string; Transfer txid;
+- `amount` - decimal string; Value of Transfer;
+- `receiver` -string; Recepient email;
+- `currency` - obj;
+  - `code` - string; Currency code.
+  - `name` - string; Currency name.
+  - `precision` - number; Currency precision.
+- `sender` - string; Sender uid;
+- `receiver` - obj;
+  - `uid` - string; Recipient uid;
+  - `verified` - bool; Is Recipient virified;
+- `status` - obj;
+  - `key` - number; Status key;
+  - `label` - string; Status label;
+- `description` - string or null; Description of Transfer;
+- `valid_till` - datetime; Vilid till date;
+
+
+## Cancel Transfer
+
+Cancel Transfer
+
+### Request
+
+`POST /api/v2/private/transfers/{{ txid }}/cancel`
+
+### Authentication
+
+`FULL`
+
+### Response
+
+> Response Example
+
+```json
+{
+  "transfer": {
+    "txid": "9699f3c5b4b1aa0d2528",
+    "amount": "10.00000000",
+    "currency": {
+      "code": "USDT",
+      "name": "Tether USD",
+      "precision": 2
+      },
+    "sender": "BL1314K55FL",
+    "receiver": {
+      "uid": "VB4DF1HQ4D7",
+      "verified": false
+      },
+    "status": {
+      "key": 20,
+      "label": "Cancelled"
+      },
+    "description": null,
+    "valid_till": "2021-08-31T12:38:05.859390Z"
+  }
+}
+```
+
+<aside class="notice">
+If request was success
+</aside>
+
+Object has next structure:
+
+- `txid` - string; Transfer txid;
+- `amount` - decimal string; Value of Transfer;
+- `receiver` -string; Recepient email;
+- `currency` - obj;
+  - `code` - string; Currency code.
+  - `name` - string; Currency name.
+  - `precision` - number; Currency precision.
+- `sender` - string; Sender uid;
+- `receiver` - obj;
+  - `uid` - string; Recipient uid;
+  - `verified` - bool; Is Recipient virified;
+- `status` - obj;
+  - `key` - number; Status key;
+  - `label` - string; Status label;
+- `description` - string or null; Description of Transfer;
+- `valid_till` - datetime; Vilid till date;
+
+

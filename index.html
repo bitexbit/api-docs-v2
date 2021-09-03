@@ -379,6 +379,18 @@
                   <li>
                     <a href="#redeem-coupon" class="toc-h2 toc-link" data-title="Redeem coupon">Redeem coupon</a>
                   </li>
+                  <li>
+                    <a href="#transfers-list" class="toc-h2 toc-link" data-title="Transfers List">Transfers List</a>
+                  </li>
+                  <li>
+                    <a href="#create-transfer" class="toc-h2 toc-link" data-title="Create Transfer">Create Transfer</a>
+                  </li>
+                  <li>
+                    <a href="#accept-transfer" class="toc-h2 toc-link" data-title="Accept Transfer">Accept Transfer</a>
+                  </li>
+                  <li>
+                    <a href="#cancel-transfer" class="toc-h2 toc-link" data-title="Cancel Transfer">Cancel Transfer</a>
+                  </li>
               </ul>
           </li>
       </ul>
@@ -970,6 +982,10 @@ Here are also batch endpoints. -->
 <li><a href="#trading-fees">Trading Fees</a></li>
 <li><a href="#create-coupon">Create coupon</a></li>
 <li><a href="#redeem-coupon">Redeem coupon</a></li>
+<li><a href="#transfer-list">Transfer list</a></li>
+<li><a href="#create-transfer">Create transfer</a></li>
+<li><a href="#accept-transfer">Accept transfer</a></li>
+<li><a href="#cancel-transfer">Cancel transfer</a></li>
 </ul>
 <h2 id='create-order'>Create Order</h2>
 <p>Create order on platform</p>
@@ -1447,6 +1463,287 @@ If request was success
 <li><code>available</code> - decimal string; available funds</li>
 <li><code>reserved</code> - decimal string; reserved funds</li>
 </ul></li>
+</ul>
+<h2 id='transfers-list'>Transfers List</h2>
+<p>Transfers List</p>
+<h3 id='request-17'>Request</h3>
+<p><code>GET /api/v2/private/transfers</code></p>
+<h3 id='authentication-17'>Authentication</h3>
+<p><code>FULL</code></p>
+<h3 id='parameters-12'>Parameters</h3>
+<p>Object with next items:</p>
+
+<ul>
+<li><code>receiver</code> - string; Recepient uid.</li>
+<li><code>currency</code> - string; Name of currency asset of Transfer.</li>
+<li><code>amount</code> - number; Value of Transfer.</li>
+<li><code>security_code</code> - number; Secure code to accept. </li>
+<li><code>valid_days</code> - number; Validity period.</li>
+<li><code>description</code> - string; Description of Transfer.</li>
+</ul>
+<h3 id='response-16'>Response</h3>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"previous"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"txid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f346a4094fc8a56ba0ad"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-30T10:21:26.771489Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10.00000000"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tether USD"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"precision"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"sender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BL1314K55FL"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"receiver"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VB4DF1HQ4D7"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"verified"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"valid_till"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-31T10:21:26.760408Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"is_outgoing"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"can_cancel"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"can_accept"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<aside class="notice">
+If request was success
+</aside>
+
+<p>Object has next structure:</p>
+
+<ul>
+<li><code>count</code> - decimal; Total transfers count;</li>
+<li><code>next</code> - string; Next page;</li>
+<li><code>previous</code> - string; Previous page;</li>
+<li><code>results</code> - list;
+
+<ul>
+<li><code>txid</code> - string; Txid of Transfer;</li>
+<li><code>date</code> - datetime; Created at;</li>
+<li><code>amount</code> - decimal string; Value of Transfer;</li>
+<li><code>currency</code> - object;</li>
+<li><code>code</code> - string; Currency code;</li>
+<li><code>name</code> - string; Currency name;</li>
+<li><code>precision</code> - decimal; Currency precision;</li>
+<li><code>sender</code> -string; Sender uid;</li>
+<li><code>receiver</code> -object;</li>
+<li><code>uid</code> -string; Receiver uid;</li>
+<li><code>verified</code> -bool; Is receiver verified;</li>
+<li><code>status</code> - object;</li>
+<li><code>key</code> - decimal; Status key;</li>
+<li><code>label</code> - decimal; Status label;</li>
+<li><code>description</code> - string or null; Description of Transfer;</li>
+<li><code>valid_till</code> - datetime; Valid till date;</li>
+<li><code>is_outgoing</code> - bool;</li>
+<li><code>can_cancel</code> - bool;</li>
+<li><code>can_accept</code> - bool;</li>
+</ul></li>
+</ul>
+<h2 id='create-transfer'>Create Transfer</h2>
+<p>Create Transfer</p>
+<h3 id='request-18'>Request</h3>
+<p><code>POST /api/v2/private/transfers/create</code></p>
+<h3 id='authentication-18'>Authentication</h3>
+<p><code>FULL</code></p>
+<h3 id='parameters-13'>Parameters</h3>
+<p>Object with next items:</p>
+
+<ul>
+<li><code>receiver</code> - string; required; Recepient uid.</li>
+<li><code>currency</code> - string; required; Name of currency asset of Transfer.</li>
+<li><code>amount</code> - number; required; Value of Transfer.</li>
+<li><code>security_code</code> - number; Secure code to accept. </li>
+<li><code>valid_days</code> - number; required if security_code; min 1, max 366; Validity period.</li>
+<li><code>description</code> - string; max length 80; Description of Transfer.</li>
+</ul>
+<h3 id='response-17'>Response</h3>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"receiver"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user@email.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10.00000000"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smile"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"txid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345abc"</span><span class="p">,</span><span class="w">  
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pending"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"valid_till"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-31T13:07:38.871103Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"is_protected"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<aside class="notice">
+If request was success
+</aside>
+
+<p>Object has next structure:</p>
+
+<ul>
+<li><code>receiver</code> -string; Recepient email;</li>
+<li><code>amount</code> - decimal string; Value of Transfer;</li>
+<li><code>currency</code> - string; Name of currency asset of Transfer;</li>
+<li><code>description</code> - string or null; Description of Transfer;</li>
+<li><code>txid</code> - string; Txid of Transfer;</li>
+<li><code>status</code> - object;
+
+<ul>
+<li><code>key</code> - decimal; Status key;</li>
+<li><code>label</code> - decimal; Status label;</li>
+</ul></li>
+<li><code>valid_till</code> - datetime; Valid till date;</li>
+<li><code>is_protected</code> - bool; Is protected via secure code;</li>
+</ul>
+<h2 id='accept-transfer'>Accept Transfer</h2>
+<p>Accept Transfer</p>
+<h3 id='request-19'>Request</h3>
+<p><code>POST /api/v2/private/transfers/{{ txid }}/accept</code></p>
+<h3 id='authentication-19'>Authentication</h3>
+<p><code>FULL</code></p>
+<h3 id='parameters-14'>Parameters</h3>
+<p>Object with next items:</p>
+
+<ul>
+<li><code>security_code</code> - number; Secure code to accept. </li>
+</ul>
+<h3 id='response-18'>Response</h3>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"transfer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"txid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9699f3c5b4b1aa0d2528"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10.00000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tether USD"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"precision"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"sender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BL1314K55FL"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"receiver"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VB4DF1HQ4D7"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"verified"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cancelled"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"valid_till"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-31T12:38:05.859390Z"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<aside class="notice">
+If request was success
+</aside>
+
+<p>Object has next structure:</p>
+
+<ul>
+<li><code>txid</code> - string; Transfer txid;</li>
+<li><code>amount</code> - decimal string; Value of Transfer;</li>
+<li><code>receiver</code> -string; Recepient email;</li>
+<li><code>currency</code> - obj;
+
+<ul>
+<li><code>code</code> - string; Currency code.</li>
+<li><code>name</code> - string; Currency name.</li>
+<li><code>precision</code> - number; Currency precision.</li>
+</ul></li>
+<li><code>sender</code> - string; Sender uid;</li>
+<li><code>receiver</code> - obj;
+
+<ul>
+<li><code>uid</code> - string; Recipient uid;</li>
+<li><code>verified</code> - bool; Is Recipient virified;</li>
+</ul></li>
+<li><code>status</code> - obj;
+
+<ul>
+<li><code>key</code> - number; Status key;</li>
+<li><code>label</code> - string; Status label;</li>
+</ul></li>
+<li><code>description</code> - string or null; Description of Transfer;</li>
+<li><code>valid_till</code> - datetime; Vilid till date;</li>
+</ul>
+<h2 id='cancel-transfer'>Cancel Transfer</h2>
+<p>Cancel Transfer</p>
+<h3 id='request-20'>Request</h3>
+<p><code>POST /api/v2/private/transfers/{{ txid }}/cancel</code></p>
+<h3 id='authentication-20'>Authentication</h3>
+<p><code>FULL</code></p>
+<h3 id='response-19'>Response</h3>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"transfer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"txid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9699f3c5b4b1aa0d2528"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10.00000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tether USD"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"precision"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"sender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BL1314K55FL"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"receiver"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VB4DF1HQ4D7"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"verified"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cancelled"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"valid_till"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-31T12:38:05.859390Z"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<aside class="notice">
+If request was success
+</aside>
+
+<p>Object has next structure:</p>
+
+<ul>
+<li><code>txid</code> - string; Transfer txid;</li>
+<li><code>amount</code> - decimal string; Value of Transfer;</li>
+<li><code>receiver</code> -string; Recepient email;</li>
+<li><code>currency</code> - obj;
+
+<ul>
+<li><code>code</code> - string; Currency code.</li>
+<li><code>name</code> - string; Currency name.</li>
+<li><code>precision</code> - number; Currency precision.</li>
+</ul></li>
+<li><code>sender</code> - string; Sender uid;</li>
+<li><code>receiver</code> - obj;
+
+<ul>
+<li><code>uid</code> - string; Recipient uid;</li>
+<li><code>verified</code> - bool; Is Recipient virified;</li>
+</ul></li>
+<li><code>status</code> - obj;
+
+<ul>
+<li><code>key</code> - number; Status key;</li>
+<li><code>label</code> - string; Status label;</li>
+</ul></li>
+<li><code>description</code> - string or null; Description of Transfer;</li>
+<li><code>valid_till</code> - datetime; Vilid till date;</li>
 </ul>
 
       </div>

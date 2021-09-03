@@ -1680,16 +1680,38 @@ If request was success
 <p><code>GET /api/v2/private/transfers</code></p>
 <h3 id='authentication-17'>Authentication</h3>
 <p><code>FULL</code></p>
+<h3 id='statuses'>Statuses</h3>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>10</td>
+<td>Pending</td>
+<td>When transfer has secure code.</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Cancelled</td>
+<td></td>
+</tr>
+<tr>
+<td>30</td>
+<td>Success</td>
+<td></td>
+</tr>
+</tbody></table>
 <h3 id='parameters-12'>Parameters</h3>
 <p>Object with next items:</p>
 
 <ul>
-<li><code>receiver</code> - string; Recepient uid.</li>
-<li><code>currency</code> - string; Name of currency asset of Transfer.</li>
-<li><code>amount</code> - number; Value of Transfer.</li>
-<li><code>security_code</code> - number; Secure code to accept. </li>
-<li><code>valid_days</code> - number; Validity period.</li>
-<li><code>description</code> - string; Description of Transfer.</li>
+<li><code>currency</code> - string; Currency code.</li>
+<li><code>status</code> - number; Transfer status code.</li>
+<li><code>is_outgoing</code> - bool; Is outgoing (You are sender).</li>
+<li><code>is_outdated</code> - bool; Is transfer outdated. </li>
 </ul>
 <h3 id='response-16'>Response</h3>
 <blockquote>

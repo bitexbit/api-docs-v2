@@ -1279,16 +1279,22 @@ Transfers List
 
 `FULL`
 
+
+### Statuses
+
+Key  | Label | Description
+-----|-------|--------
+10   | Pending    | When transfer has secure code.
+20   | Cancelled  |
+30   | Success    |
 ### Parameters
 
 Object with next items:
 
-- `receiver` - string; Recepient uid.
-- `currency` - string; Name of currency asset of Transfer.
-- `amount` - number; Value of Transfer.
-- `security_code` - number; Secure code to accept. 
-- `valid_days` - number; Validity period.
-- `description` - string; Description of Transfer.
+- `currency` - string; Currency code.
+- `status` - number; Transfer status code.
+- `is_outgoing` - bool; Is outgoing (You are sender).
+- `is_outdated` - bool; Is transfer outdated. 
 
 ### Response
 
@@ -1365,7 +1371,7 @@ Create Transfer
 
 ### Request
 
-`POST /api/v2/private/transfers/create`
+`POST /api/v2/private/transfers/create/`
 
 ### Authentication
 
@@ -1426,7 +1432,7 @@ Accept Transfer
 
 ### Request
 
-`POST /api/v2/private/transfers/{{ txid }}/accept`
+`POST /api/v2/private/transfers/{{ txid }}/accept/`
 
 ### Authentication
 
@@ -1498,7 +1504,7 @@ Cancel Transfer
 
 ### Request
 
-`POST /api/v2/private/transfers/{{ txid }}/cancel`
+`POST /api/v2/private/transfers/{{ txid }}/cancel/`
 
 ### Authentication
 
